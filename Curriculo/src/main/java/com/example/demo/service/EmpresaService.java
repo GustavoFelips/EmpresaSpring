@@ -10,6 +10,7 @@ import com.example.demo.repository.EmpresaRepository;
 
 @Service
 public class EmpresaService implements IEmpresaService {
+    @Autowired
     private EmpresaRepository empresaRepository;
 
     public List<Empresa> findAll() {
