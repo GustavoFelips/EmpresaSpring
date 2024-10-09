@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+
+import com.example.demo.dtos.Empresas.UpdateEmpresaDto;
 import com.example.demo.model.Empresa;
 import com.example.demo.service.EmpresaService;
 import java.util.Optional;
@@ -30,6 +32,12 @@ public class EmpresaController {
     //public Empresa getEmpresaByName(@PathVariable String name) {
     //    return EmpresaRepository.findByNomeFantasia(name);
     //}
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Empresa> updateEmpresa(@PathVariable("id") UUID id, @RequestBody UpdateEmpresaDto empresaDto) {
+        Empresa updatedEmpresa = empresaService.update(id, empresaDto);
+        return ResponseEntity.ok(updatedEmpresa);
+    }
 
     @PostMapping
     public Empresa createEmpresa(@RequestBody Empresa empresa) {
