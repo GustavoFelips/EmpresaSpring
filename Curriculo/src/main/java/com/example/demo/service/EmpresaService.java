@@ -42,7 +42,7 @@ public class EmpresaService implements IEmpresaService {
             throw new EntityNotFoundException("Empresa não encontrada com o ID: " + empresaId);
         }
     }
-    
+
 
     public Empresa save(Empresa empresa) {
         return empresaRepository.save(empresa);
@@ -51,4 +51,5 @@ public class EmpresaService implements IEmpresaService {
     public void delete(UUID id) {
         empresaRepository.deleteById(id);
     }
+
 }
